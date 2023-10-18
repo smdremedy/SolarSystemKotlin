@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    app:startDestination="@id/nav_planets">
+
+    <activity
+        android:id="@+id/activity"
+        tools:layout="@layout/solar_system_activity" />
+
+    <fragment
+        android:id="@+id/nav_planets"
+        android:name="pl.szkoleniaandroid.solarsystem.screens.planets.PlanetsFragment"
+        tools:layout="@layout/solar_objects_fragment" />
+
+    <fragment
+        android:id="@+id/nav_others"
+        android:name="pl.szkoleniaandroid.solarsystem.screens.others.OthersFragment"
+        tools:layout="@layout/solar_objects_fragment" />
+
+    <fragment
+        android:id="@+id/nav_moons"
+        android:name="pl.szkoleniaandroid.solarsystem.screens.objectswithmoons.ObjectsWithMoonsFragment"
+        tools:layout="@layout/solar_objects_fragment" />
+
+    <fragment
+        android:id="@+id/nav_details"
+        android:name="pl.szkoleniaandroid.solarsystem.screens.details.ObjectDetailsFragment"
+        tools:layout="@layout/object_details_fragment">
+        <argument
+            android:name="solarObject"
+            app:argType="pl.szkoleniaandroid.solarsystem.domain.SolarObject" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_moon"
+        android:name="pl.szkoleniaandroid.solarsystem.screens.moons.MoonsFragment">
+        <argument
+            android:name="orbitId"
+            app:argType="java.lang.String"
+            app:nullable="false" />
+    </fragment>
+
+
+    <action
+        android:id="@+id/showObjectDetails"
+        app:destination="@id/nav_details" />
+
+</navigation>
