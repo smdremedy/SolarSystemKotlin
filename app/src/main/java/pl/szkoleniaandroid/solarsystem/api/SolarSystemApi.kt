@@ -11,7 +11,7 @@ interface SolarSystemApi {
     @Headers("Delay: 1000")
     @GET("/planets")
     suspend fun getPlanets(): Response<List<SolarObjectJson>>
-
+    @Headers("Delay: 10000")
     @GET("/others")
     suspend fun getOthers(): Response<List<SolarObjectJson>>
 
